@@ -28,8 +28,10 @@ DEBUG = env('DEBUG')
 ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')
 
 # load production server from .env
-ALLOWED_HOSTS = ['*', 'https://oabexpense-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://oabexpense-production.up.railway.app']
+ALLOWED_HOSTS = ['*', 'oabexpense-production.up.railway.app',
+                 'https://oabexpense-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://oabexpense-production.up.railway.app',
+                        'https://oabexpense-production.up.railway.app']
 
 # Application definition
 
