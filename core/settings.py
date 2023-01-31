@@ -28,9 +28,9 @@ DEBUG = env('DEBUG')
 ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')
 
 # load production server from .env
-ALLOWED_HOSTS = ['*', 'localhost', 'localhost:85', '127.0.0.1',
+ALLOWED_HOSTS = ['*', 'localhost', 'localhost:85', 'https://oabexpense-production.up.railway.app', '127.0.0.1',
                  env('SERVER', default='127.0.0.1')]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1',
+CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'https://oabexpense-production.up.railway.app', 'http://127.0.0.1',
                         'https://' + env('SERVER', default='127.0.0.1')]
 
 # Application definition
