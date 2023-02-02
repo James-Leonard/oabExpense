@@ -19,21 +19,15 @@
                     class="nav-item {% if 'index' in segment %} active {% endif %}">
                     <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
                             class="pcoded-mtext">Dashboard</span></a>
-                </li>
-                <li data-username="Profile Page" 
-                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
-                    <a href="/profile.html" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                            <span class="pcoded-mtext">Profile</span></a>
                 </li>                
                 <li data-username="form elements advance componant validation masking wizard picker select"
-                    class="nav-item {% if 'form_elements' in segment %} active {% endif %}">
+                    class="nav-item ">
                     <a href="" class="nav-link "><span class="pcoded-micon"><i
                             class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Expense</span></a>
                 </li>
                 <li data-username="Table bootstrap datatable footable" 
-                    class="nav-item {% if 'tbl_bootstrap' in segment %} active {% endif %}">
+                    class="nav-item ">
                     <a href="" class="nav-link "><span class="pcoded-micon"><i
                             class="feather icon-server"></i></span><span class="pcoded-mtext">Income</span></a>
                 </li>
@@ -41,27 +35,33 @@
                     <label>Summary</label>
                 </li>
                 <li data-username="Charts Morris" 
-                    class="nav-item {% if 'chart-morris' in segment %} active {% endif %}">
+                    class="nav-item ">
                     <a href="" class="nav-link "><span
                         class="pcoded-micon"><i class="feather icon-bar-chart-2"></i></span><span class="pcoded-mtext">Expenses Summary</span></a>
                 </li>
                 <li data-username="Maps Google" 
-                    class="nav-item {% if 'map-google' in segment %} active {% endif %}">
+                    class="nav-item ">
                     <a href="" class="nav-link "><span
                         class="pcoded-micon"><i class="feather icon-bar-chart-2"></i></span><span
                         class="pcoded-mtext">Income Summary</span></a></li>        
                         
                 <li class="nav-item pcoded-menu-caption">
-                    <label>More Resources</label>
+                    <label>settings</label>
                 </li>                    
-                <li data-username="Support Page" class="nav-item ">
-                    <a target="_blank" href="" class="nav-link">
+                <li data-username="Support Page" class="nav-item {% if 'preferences' in segment %} active {% endif %}">
+                    <a href="{% url 'preferences'%}" class="nav-link">
                         <span class="pcoded-micon">
                             <i class="feather icon-headphones"></i>
                         </span>
-                        <span class="pcoded-mtext">Support</span>
+                        <span class="pcoded-mtext">General</span>
                     </a>
                 </li>  
+                    <li data-username="Profile Page" 
+                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="/profile.html" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                            <span class="pcoded-mtext">Profile</span></a>
+                </li>
             </ul>
         </div>
     </div>
