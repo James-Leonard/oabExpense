@@ -1,0 +1,99 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="page-header-title">
+                                        <h1 class="m-b-10">Add Expense</h1>
+                                    </div>
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'expense' %}">My Expense</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Basic Componant</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5>Form controls</h5>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <form method="post" action="{% url 'add_expense' %}">
+                                                        <div class="messages">
+                                                            {% if messages %}
+                                                            {% for message in messages %}
+                                                            <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags}}"{% endif %}>
+                                                               <h1> {{ message }}</h1>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        {% endif %}
+                                                        {% csrf_token %}
+                                                        <div class="form-group">
+                                                            <label >Amount</label>
+                                                            <input type="number" class="form-control" name="amount" value={{values.amount}} >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label >Description</label>
+                                                            <input type="text" class="form-control" name="description" value={{values.description}} >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlSelect1">Category</label>
+                                                            <select class="form-control" name="category" id="exampleFormControlSelect1">
+                                                                {% for category in categories %}
+                                                                <option name="category" value="{{category.name}}">{{category.name}}</option>
+                                                                {% endfor %}
+                                                              
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label >Date</label>
+                                                            <input type="date" class="form-control" name="expense_date" placeholder="3500">
+                                                        </div>
+                                                        <input type="submit" value="submit" class="btn btn-primary"/>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

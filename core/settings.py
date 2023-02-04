@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Enable the inner home (home)
     'apps.home',
     'apps.userpreferences',
+    'apps.expense',
     'allauth',                                      # OAuth new
     'allauth.account',                              # OAuth new
     'allauth.socialaccount',                        # OAuth new
