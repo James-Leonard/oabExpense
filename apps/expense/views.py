@@ -2,14 +2,17 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 import json
 from django.http import JsonResponse
 
 # Create your views here.
 
 
+@login_required(login_url="/login/")
 def expense(request):
     categories = Category.objects.all()
+    expenses = Expense.objects.filter(owner=request.user)
     expenses = Expense.objects.filter(owner=request.user)
     paginator = Paginator(expenses, 2)
     page_number = request.GET.get('page')
@@ -22,6 +25,7 @@ def expense(request):
     return render(request, 'expense/expense.html', context)
 
 
+@login_required(login_url="/login/")
 def add_expense(request):
     categories = Category.objects.all()
     context = {
@@ -54,6 +58,7 @@ def add_expense(request):
         return redirect('expense')
 
 
+@login_required(login_url="/login/")
 def expense_edit(request, id):
     expense = Expense.objects.get(pk=id)
     categories = Category.objects.all()
@@ -96,6 +101,7 @@ def expense_edit(request, id):
         return redirect('expense')
 
 
+@login_required(login_url="/login/")
 def delete_expense(request, id):
     expense = Expense.objects.get(pk=id)
     expense.delete()
