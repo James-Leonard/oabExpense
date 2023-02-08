@@ -46,17 +46,17 @@
                 <li data-username="Support Page" class="nav-item {% if 'preferences' in segment %} active {% endif %}">
                     <a href="{% url 'preferences'%}" class="nav-link">
                         <span class="pcoded-micon">
-                            <i class="feather icon-headphones"></i>
+                            <i class="feather icon-credit-card"></i>
                         </span>
                         <span class="pcoded-mtext">General</span>
                     </a>
                 </li>  
-                    <li data-username="Profile Page" 
+                    {% comment %} <li data-username="Profile Page" 
                     class="nav-item {% if 'profile' in segment %} active {% endif %}">
-                    <a href="" class="nav-link">
+                    <a href="index/profile.html" class="nav-link">
                         <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                             <span class="pcoded-mtext">Profile</span></a>
-                </li>
+                </li> {% endcomment %}
             </ul>
         </div>
     </div>

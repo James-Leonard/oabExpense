@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 import json
 from django.http import JsonResponse
+from apps.userpreferences.models import UserPreference
 
 
 @login_required(login_url="/login/")
@@ -27,10 +28,12 @@ def expense(request):
     paginator = Paginator(expenses, 2)
     page_number = request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
+    currency = UserPreference.objects.get(user=request.user).currency
 
     context = {
         'expenses': expenses,
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'currency': currency
     }
     return render(request, 'expense/expense.html', context)
 

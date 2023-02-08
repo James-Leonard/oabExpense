@@ -3,8 +3,10 @@ const appTable = document.querySelector(".app-table");
 const paginationContainer = document.querySelector(".pagination-container");
 
 const tableOutput = document.querySelector(".table-output");
+
 tableOutput.style.display = "none";
-const tbody=document.querySelector('.table-body');
+const noResults = document.querySelector(".no-results");
+const tbody=document.querySelector(".table-body");
 
 
 
@@ -21,15 +23,16 @@ searchField.addEventListener("keyup", (e) => {
       })
         .then((res) => res.json())
         .then((data) => {
-            console.log("data", data);
             appTable.style.display = "none";
             tableOutput.style.display = "block";
 
 
             if (data.length===0){
-                tableOutput.innerHTML="No results found";
+              noResults.style.display = "block";
+              tableOutput.style.display = "none";
             } else {
-               data.forEach(item => {
+              noResults.style.display = "none";
+              data.forEach((item) => {
                     tbody.innerHTML += `
                     <tr>
                     <td>${item.amount}</td>
@@ -37,7 +40,7 @@ searchField.addEventListener("keyup", (e) => {
                     <td>${item.description}</td>
                     <td>${item.date}</td>
                     </tr>`;
-                }); 
+              }); 
             }
       });     
     }else{
