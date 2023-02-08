@@ -53,44 +53,67 @@
                                            
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
-                                                    <div class="app-table">
+                                                    <div class="">
                                                     {% if expenses.count %}
                                                     <div class="col-md-8 mt-3">
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <input type="text" id="searchField" class="form-control" placeholder="Search . . ."></f
+                                                                <input type="text" id="searchField" class="form-control" placeholder="Search . . ."/>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Amount (CURRENCY)</th>
-                                                                <th>Category</th>
-                                                                <th>Description</th>
-                                                                <th>Date</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
+                                               <div class="app-table">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Amount (CURRENCY)</th>
+                                                            <th>Category</th>
+                                                            <th>Description</th>
+                                                            <th>Date</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
 
-                                                            {% for expense in page_obj %}
-                                                            <tr>
-                                                                <td>{{ expense.amount}}</td>
-                                                                <td>{{ expense.category}}</td>
-                                                                <td>{{ expense.description}}</td>
-                                                                <td>{{ expense.date}}</td>
+                                                        {% for expense in page_obj %}
+                                                        <tr>
+                                                            <td>{{ expense.amount}}</td>
+                                                            <td>{{ expense.category}}</td>
+                                                            <td>{{ expense.description}}</td>
+                                                            <td>{{ expense.date}}</td>
 
-                                                                <td><a class="label theme-bg text-white f-12" href="{% url 'expense-edit' expense.id %}">Edit</a></td>
-                                                            </tr>
-                                                            {% endfor %}
-                                                        </tbody>
-                                                    </table>
+                                                            <td><a class="label theme-bg text-white f-12" href="{% url 'expense-edit' expense.id %}">Edit</a></td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                               </div>
 
+<div class="table-output">
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Amount (CURRENCY)</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="table-body">
+
+        </tbody>
+    </table>
+
+
+
+</div>
                                                 </div>
 
 
-                                                    <div class="col-sm-12">
+                                                    <div class="col-sm-12 pagination-container">
                                                         <div class="card">
                                                             <div class="card-header">
                                                                 <h5>Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</h5>
@@ -132,8 +155,7 @@
     </div>
     <!-- [ Main Content ] end -->
 
-    {% comment %} <script src="{% static 'assets/js/searchExpenses.js' %}"></script>
-    <script>  console.log("hello world woke");</script> {% endcomment %}
+    <script src="{% static 'assets/js/man.js' %}"></script>
 
 {% endblock content %}
 
