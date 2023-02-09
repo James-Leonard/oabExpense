@@ -13,6 +13,7 @@ urlpatterns = [
 
     # ADD NEW Routes HERE
     path("", include("apps.expense.urls")),
+    path("income/", include("apps.income.urls")),
     path("preferences/", include("apps.userpreferences.urls")),
 
     # Leave `Home.Urls` as last the last line

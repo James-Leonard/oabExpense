@@ -17,7 +17,7 @@ searchField.addEventListener("keyup", (e) => {
         paginationContainer.style.display = "none";
         tbody.innerHTML = "";
 
-      fetch("/search-expense/", {
+      fetch("/income/search-income/", {
         body: JSON.stringify({ searchText: searchValue }),
         method: "POST",
       })
@@ -36,7 +36,7 @@ searchField.addEventListener("keyup", (e) => {
                     tbody.innerHTML += `
                     <tr>
                     <td>${item.amount}</td>
-                    <td>${item.category}</td>
+                    <td>${item.source}</td>
                     <td>${item.description}</td>
                     <td>${item.date}</td>
                     </tr>`;

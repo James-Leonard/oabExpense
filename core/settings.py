@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.userpreferences',
     'apps.expense',
+    'apps.income',
     'allauth',                                      # OAuth new
     'allauth.account',                              # OAuth new
     'allauth.socialaccount',                        # OAuth new

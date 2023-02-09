@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Add Expense {% endblock %} 
+{% block title %} Add Income{% endblock %} 
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -19,11 +19,11 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h1 class="m-b-10">Add Expense</h1>
+                                        <h1 class="m-b-10">Add Income</h1>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="{% url 'expense' %}">My Expense</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'income' %}">My Income</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form method="post" action="{% url 'add_expense' %}">
+                                                    <form method="post" action="{% url 'add_income' %}">
                                                         <div class="messages">
                                                             {% if messages %}
                                                             {% for message in messages %}
@@ -64,17 +64,17 @@
                                                             <input type="text" class="form-control" name="description" value={{values.description}} >
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlSelect1">Category</label>
-                                                            <select class="form-control" name="category" id="exampleFormControlSelect1">
-                                                                {% for category in categories %}
-                                                                <option name="category" value="{{category.name}}">{{category.name}}</option>
+                                                            <label for="exampleFormControlSelect1">Sources</label>
+                                                            <select class="form-control" name="source" id="exampleFormControlSelect1">
+                                                                {% for source in sources %}
+                                                                <option name="source" value="{{source.name}}">{{source.name}}</option>
                                                                 {% endfor %}
                                                               
                                                             </select>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label >Date of Expense</label>
-                                                            <input type="date" class="form-control" name="expense_date" placeholder="3500">
+                                                            <label >Date of Income</label>
+                                                            <input type="date" class="form-control" name="income_date" >
                                                         </div>
                                                         <input type="submit" value="submit" class="btn btn-primary"/>
                                                     </form>

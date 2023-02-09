@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %} Expenses {% endblock %} 
+{% block title %}  Income{% endblock %} 
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -21,19 +21,19 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">My Expenses</h5>
+                                        <h5 class="m-b-10">My Income</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">My Expenses</a></li>
-                                        <li class="breadcrumb-item"><a href="{% url 'add_expense' %}">Add expenses</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">My Income</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'add_income' %}">Add Income</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- [ breadcrumb ] end -->
-                    <div class="main-body">
+                 <div class="main-body">
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
@@ -54,7 +54,7 @@
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
                                                     <div class="">
-                                                    {% if expenses.count %}
+                                                    {% if income.count %}
                                                     <div class="col-md-8 mt-3">
                                                         <div class="col-md-4">
                                                             <div class="form-group">
@@ -67,7 +67,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Amount ({{currency}})</th>
-                                                            <th>Category</th>
+                                                            <th>Source</th>
                                                             <th>Description</th>
                                                             <th>Date</th>
                                                             <th></th>
@@ -75,41 +75,41 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        {% for expense in page_obj %}
+                                                        {% for income in page_obj %}
                                                         <tr>
-                                                            <td>{{ expense.amount}}</td>
-                                                            <td>{{ expense.category}}</td>
-                                                            <td>{{ expense.description}}</td>
-                                                            <td>{{ expense.date}}</td>
+                                                            <td>{{ income.amount}}</td>
+                                                            <td>{{ income.source}}</td>
+                                                            <td>{{ income.description}}</td>
+                                                            <td>{{ income.date}}</td>
 
-                                                            <td><a class="label theme-bg text-white f-12" href="{% url 'expense-edit' expense.id %}">Edit</a></td>
+                                                            <td><a class="label theme-bg text-white f-12" href="{% url 'income-edit' income.id %}">Edit</a></td>
                                                         </tr>
                                                         {% endfor %}
                                                     </tbody>
                                                 </table>
                                                </div>
-<p class="no-results" style="display: none;">No results</p>
-<div class="table-output">
+                    <p class="no-results" style="display: none;">No results</p>
+                    <div class="table-output">
 
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Amount ({{currency}})</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody class="table-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Amount ({{currency}})</th>
+                                    <th>Source</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
 
-        </tbody>
-    </table>
+                            </tbody>
+                        </table>
 
 
 
-</div>
+                    </div>
                                                 </div>
 
 
@@ -146,16 +146,16 @@
 <!-- [ Hover-table ] end -->
 
                             </div>
-                            <!-- [ Main Content ] end -->
-                        </div>
-                    </div>
+                            <!-- [ Main Content ] end --> 
+                         </div>
+                    </div> 
                 </div>
             </div>
         </div>
     </div>
     <!-- [ Main Content ] end -->
 
-    <script src="{% static 'assets/js/man.js' %}"></script>
+     <script src="{% static 'assets/js/manincome.js' %}"></script>
 
 {% endblock content %}
 
